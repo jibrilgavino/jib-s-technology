@@ -1,0 +1,294 @@
+@font-face {
+	font-family: myFont;
+	src: url(heycomic.ttf)
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.banner {
+	width: 100%;
+	height: 180vh;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(background.jpg);
+	background-size: cover;
+	background-position: center;
+}
+.navbar {
+	width: 80%;
+	height: 120px;
+	margin: auto;
+	padding: 35px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.logo {
+	width: 150px;
+	cursor: pointer;
+	animation: fadeInUp 1.3s ease-out;
+}
+.navbar ul li {
+	position: relative;
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+}
+.navbar ul li a {
+	text-decoration: none;
+	color: #ffffff;
+	outline: none;
+	text-transform: uppercase;
+}
+.navbar ul li::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: rgb(255, 105, 242);
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: width 0.5s ease, opacity 0.5s ease;
+	opacity: 0;
+}
+.navbar ul li:hover::after {
+	width: 100%;
+	opacity: 1;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #1bd5b3;
+    border-radius: 6px;
+}
+#iphone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 40px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.iphone-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.iphone-heading span {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.iphone-heading h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.iphone-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.iphone-box {
+    width: 400px;
+	height: 500px;
+    background-color: #f8f8f8;
+    margin: 20px 20px;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.iphone-box:hover {
+    transform: scale(1.05);
+}
+
+.iphone-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.iphone-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.iphone-box:hover .iphone-img img {
+    transform: scale(1.1);
+}
+
+.iphone-text {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.iphone-text span {
+    color: #f33c3c;
+    font-size: 0.8rem;
+}
+
+.iphone-text .iphone-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #272727;
+    margin: 10px 0;
+}
+
+.iphone-text p {
+    color: #9b9b9b;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 10px 0;
+}
+
+.iphone-text a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.iphone-text a:hover {
+    color: #c74242;
+}
+.cart-summary-container {
+    position: fixed;
+    top: 100px; /* Adjust based on your header's height */
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.cart-summary {
+    padding: 20px;
+}
+
+.cart-summary h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#cart-items {
+    list-style: none;
+    margin-bottom: 20px;
+    max-height: 300px; /* Adjust based on your preference */
+    overflow-y: auto;
+    padding-inline-start: 0;
+}
+
+#cart-items li {
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+#cart-total {
+    font-weight: bold;
+    color: #000;
+}
+
+.cart-summary p {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Scrollbar styles for the cart items */
+#cart-items::-webkit-scrollbar {
+    width: 4px;
+}
+
+#cart-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+#cart-items::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+#clear-cart-btn {
+    background-color: #ff4747; /* Red color for clear action */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#clear-cart-btn:hover {
+    background-color: #ff2e2e; /* Slightly darker on hover */
+}
+#clear-cart-btn {
+    background-color: #dc3545; /* Bootstrap's danger color for emphasis */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: calc(100% - 30px); /* Full width with padding */
+    display: block; /* Ensure it fills the container */
+    text-align: center;
+    margin: 20px auto 0; /* Adds space on top, auto centers it */
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#clear-cart-btn:hover, #clear-cart-btn:focus {
+    background-color: #c82333; /* Darker shade for interaction */
+    outline: none; /* Removes focus outline for aesthetic purposes */
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.5); /* Subtle glow effect on focus/hover */
+}
+
+/* Optional: If you want to add an icon to the button */
+#clear-cart-btn:before {
+    content: '\1F5D1'; /* Trash can icon in Unicode */
+    display: inline-block;
+    margin-right: 8px;
+}
+

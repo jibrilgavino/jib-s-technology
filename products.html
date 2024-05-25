@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Products</title>
+	<link rel="icon" type="image/png" href="images/phone.png">
+	<link rel="stylesheet" href="productstyle.css">
+</head>
+<body>
+	<div class="banner">
+		<div class="navbar">
+			<img src="images/logo.png" class="logo">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">Shop</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+			</ul>
+		</div>
+		<section id="iphone">
+			<div class="iphone-heading">
+				<span>Mobile Phones</span>
+				<h3>Advanced Technology</h3>
+			</div>
+
+			<div class="iphone-container">
+
+				<div class="iphone-box">
+
+					<div class="iphone-img">
+						<img alt="#" src="images/iphone 5.jpg">
+					</div>
+
+					<div class="iphone-text">
+						<span>Iphone 15 Pro Max</span>
+						<a href="#" class="iphone-title" target="_blank">$1,882.30</a>
+						<p>The Dior Jordan 1 has such a high price tag because each pair is handmade and numbered in Italy, with the best quality leathers and materials imaginable.</p>
+						<button class="add-to-cart-btn" data-name="Iphone" data-price="1882">Add to Cart</button>
+					</div>
+
+				</div>
+
+				<div class="iphone-box">
+
+					<div class="iphone-img">
+						<img alt="#" src="images/samsungs24.png">
+					</div>
+
+					<div class="iphone-text">
+						<span>Samsung S24 Plus</span>
+						<a href="#"class="iphone-title" target="_blank">$1,753.00</a>
+						<p>According to X tipster Roland Quandt, Samsung's official tagline for the Galaxy S24 series is, “Epic, just like that.”</p>
+						<p>The company has associated the term “Epic” with its S series flagships since the Galaxy S21 in 2021. It is sticking to that for another year.</p>
+                        <button class="add-to-cart-btn" data-name="Natural Titanium" data-price="1753">Add to Cart</button>
+					</div>
+
+				</div>
+                <div class="cart-summary-container">
+                    <div class="cart-summary">
+                        <h3>Cart Summary</h3>
+                        <ul id="cart-items"></ul>
+                        <p>Total: $<span id="cart-total">0</span></p>
+                        <button id="clear-cart-btn">Clear Cart</button>
+                    </div>
+                </div>
+				<div class="iphone-box">
+
+					<div class="iphone-img">
+						<img alt="#" src="images/oneplus12r.png">
+					</div>
+
+					<div class="iphone-text">
+						<span>OnePlus 12R</span>
+						<a href="#" class="iphone-title" target="_blank">$650.00</a>
+						<p>In the relentless pursuit of speed , we have created the absolute pinnacle of smooth.</p>
+						<p>A fusion of class-leading hardware and innovative software elevates the OnePlus 12R to be Smooth Beyond Belief.</p>
+                        <button class="add-to-cart-btn" data-name="Blue Titanium" data-price="650">Add to Cart</button>
+					</div>
+
+				</div>
+
+				<div class="iphone-box">
+
+					<div class="iphone-img">
+						<img alt="#" src="images/pixel8pro.png">
+					</div>
+
+					<div class="iphone-text">
+						<span>Pixel 8 Pro</span>
+						<a href="#" class="iphone-title" target="_blank">$999.00</a>
+						<p>6.7" Super Actua display. Pixel’s brightest ever.</p>
+						<p>Fully upgraded cameras and never-before-seen editing.</p>
+						<p>Polished aluminum frame and matte back glass.</p>
+						<p>The power and brains behind Pixel 8 Pro.</p>
+                        <button class="add-to-cart-btn" data-name="Black Titanium" data-price="999">Add to Cart</button>
+					</div>
+
+				</div>
+
+				<div class="iphone-box">
+
+					<div class="iphone-img">
+						<img alt="#" src="images/experia.jpg">
+					</div>
+
+					<div class="iphone-text">
+						<span>Sony Experia 1 V</span>
+						<a href="#" class="iphone-title" target="_blank">$1,198.00</a>	
+						<p>Sony’s flagship smartphone is still about as cinematic as a phone can be</p>
+						<p>The Xperia 1 V might be considered overkill unless you’re a real AV enthusiast, but that’s probably why you’re here reading this, right?</p>
+                        <button class="add-to-cart-btn" data-name="White Titanium" data-price="1198">Add to Cart</button>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+	</div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cart = [];
+
+    function addToCart(productName, productPrice) {
+        const product = { name: productName, price: productPrice };
+        cart.push(product);
+        updateCartSummary();
+    }
+
+    function updateCartSummary() {
+        const cartItemsEl = document.getElementById('cart-items');
+        const cartTotalEl = document.getElementById('cart-total');
+        cartItemsEl.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(product => {
+            total += Number(product.price);
+            const itemEl = document.createElement('li');
+            itemEl.textContent = `${product.name}: $${product.price}`;
+            cartItemsEl.appendChild(itemEl);
+        });
+
+        cartTotalEl.textContent = total.toFixed(2);
+    }
+
+
+    function clearCart() {
+        cart.length = 0;
+        updateCartSummary();
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const productName = event.target.getAttribute('data-name');
+            const productPrice = event.target.getAttribute('data-price');
+            addToCart(productName, productPrice);
+        });
+    });
+
+    document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+});
+    </script>
+    
+</body>
+</html>
